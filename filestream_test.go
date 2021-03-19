@@ -19,7 +19,7 @@ func TestFileStream(t *testing.T) {
 		}
 
 		for _, tt := range testCases {
-			bs, err := NewFileStream(tt.input, true)
+			bs, err := NewFileStream(tt.input)
 			if bs == nil || err != nil {
 				t.Fatal("failed to create new BinaryStream instance with error", err)
 			}
@@ -40,7 +40,7 @@ func TestFileStream(t *testing.T) {
 		}
 
 		for _, tt := range testCases {
-			bs, err := NewFileStream(tt.input, false)
+			bs, err := NewFileStream(tt.input)
 			if bs == nil || err != nil {
 				t.Fatal("failed to create new BinaryStream instance with error", err)
 			}
@@ -69,7 +69,7 @@ func TestFileStream(t *testing.T) {
 		}
 
 		for _, tt := range testCases {
-			bs, err := NewFileStream(tt.input, true)
+			bs, err := NewFileStream(tt.input)
 			if bs == nil || err != nil {
 				t.Fatal("failed to create new BinaryStream instance with error", err)
 			}
