@@ -81,6 +81,7 @@ func (bs *ByteStream) ReadUint8(off int64) (uint8, error) {
 	if n != 1 || err != nil {
 		return 0, err
 	}
+	bs.pos += n
 	return uint8(b[0]), err
 }
 
@@ -92,6 +93,7 @@ func (bs *ByteStream) ReadUint16(off int64) (uint16, error) {
 	if n != 2 || err != nil {
 		return 0, err
 	}
+	bs.pos += n
 	return binary.LittleEndian.Uint16(b), err
 }
 
@@ -103,6 +105,7 @@ func (bs *ByteStream) ReadUint32(off int64) (uint32, error) {
 	if n != 4 || err != nil {
 		return 0, err
 	}
+	bs.pos += n
 	return binary.LittleEndian.Uint32(b), err
 }
 
@@ -114,6 +117,7 @@ func (bs *ByteStream) ReadUint64(off int64) (uint64, error) {
 	if n != 8 || err != nil {
 		return 0, err
 	}
+	bs.pos += n
 	return binary.LittleEndian.Uint64(b), err
 }
 
