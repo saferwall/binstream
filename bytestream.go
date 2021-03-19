@@ -18,6 +18,9 @@ type ByteStream struct {
 	r      *bytes.Reader
 }
 
+// Assert interface implementation checks
+var _ Stream = (*ByteStream)(nil)
+
 // NewByteStream creates a new binary stream from a byte slice (can be memory mapped file).
 func NewByteStream(b []byte) (*ByteStream, error) {
 	binary := make([]byte, len(b))
