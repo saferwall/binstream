@@ -21,4 +21,8 @@ type Stream interface {
 	// Seek and position
 	Pos() int                                        // Return current position in the stream
 	Seek(off int64, whence int) (n int64, err error) // Move to offset by changing position
+	// Close the underlying stream.
+	// While this might seem unncessary for in-memory streams (GC will clean up buffer)
+	// it is necessary to prevent a mis-use when dealing with file stream.s
+	Close() error
 }

@@ -131,3 +131,8 @@ func (bs *ByteStream) IsEOF() bool {
 	// in the underlying stream.
 	return bs.r.Len() == 0
 }
+
+// Close underlying stream.
+func (bs *ByteStream) Close() error {
+	return nil
+}
