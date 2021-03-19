@@ -1,7 +1,7 @@
 package binstream
 
 // StreamType represents the stream type we're reading from (a File or Memory)
-type StreamType uint
+type StreamType int
 
 const (
 	// UNKNOWN is for unknown stream types.
@@ -18,8 +18,7 @@ type Stream interface {
 	// Small Reader Interface
 	Read(b []byte) (n int, err error)              // Read len(b) from stream.
 	ReadAt(b []byte, off int64) (n int, err error) // Read len(b) from stream starting at off.
-	// Seekers and Peekers
-	Pos() int                                     // Return current position in the stream
-	Seek(off uint64) (err error)                  // Move to offset by changing position
-	Peek(off uint64, size int) (n int, err error) // Peek at the slice of len(s) = size at offset:off.
+	// Seek and position
+	Pos() int                                        // Return current position in the stream
+	Seek(off int64, whence int) (n int64, err error) // Move to offset by changing position
 }
